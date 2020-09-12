@@ -5,7 +5,8 @@ services:
     env_file:
       - .env
     restart: always
-    ports: ["${DATABASE_PORT}:5432"]
+    ports:
+      - "${DATABASE_PORT}:5432"
     volumes:
       - ${DATA_FOLDER}:/var/lib/postgresql/data
   adminer:
@@ -13,13 +14,15 @@ services:
       restart: always
       depends_on:
           - db
-      ports: ["${ADMINER_PORT}:8080"]
+      ports:
+        - "${ADMINER_PORT}:8080"
   redis:
     image: redis:6.0.8-alpine
     env_file:
       - .env
     restart: always
-    ports: ["${REDIS_PORT}:6379"]
+    ports:
+      - "${REDIS_PORT}:6379"
     volumes:
       - ${DATA_FOLDER}:/data
   uchu:
@@ -33,5 +36,8 @@ services:
       - .env
     volumes:
       - ${GAME_FOLDER}:/res
+    ports:
+      - "2002:${CHARACTER_PORT}"
+      - "10000-10100:${API_PORT}-${MAX_API_PORT}"
     tty: true
     stdin_open: true

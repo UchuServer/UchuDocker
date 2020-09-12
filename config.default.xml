@@ -28,10 +28,10 @@
   <Networking>
     <Certificate />
     <Hostname />
-    <CharacterPort>2002</CharacterPort>
+    <CharacterPort>$CHARACTER_PORT</CharacterPort>
     <HostAuthentication>true</HostAuthentication>
     <HostCharacter>true</HostCharacter>
-    <MaxWorldServers>100</MaxWorldServers>
+    <MaxWorldServers>$MAX_WORLD_SERVERS</MaxWorldServers>
   </Networking>
   <GamePlay>
     <PathFinding>false</PathFinding>
@@ -40,7 +40,7 @@
   <Api>
     <Protocol>http</Protocol>
     <Domain>localhost</Domain>
-    <Port>10000</Port>
+    <Port>$API_PORT</Port>
   </Api>
   <Sso>
     <Domain />
