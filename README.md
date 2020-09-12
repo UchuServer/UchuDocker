@@ -50,7 +50,7 @@ docker-compose down
 
 ## Adminer
 
-Uchu Docker also automatically runs [Adminer](https://www.adminer.org), which allows you to easily modify the Uchu database in a user friendly way. After running Uchu Docker you can access Adminer through your browser at [this link](0.0.0.0:8080). Select the `PostgreSQL` database type, set the server to `db` and enter the credentials found in the `.env` file to login. More info on how to use Adminer can be found on their website.
+Uchu Docker also automatically runs [Adminer](https://www.adminer.org), which allows you to easily modify the Uchu database in a user friendly way. After running Uchu Docker you can access Adminer through your browser at 0.0.0.0:8080 (or at 0.0.0.0:$ADMINER_PORT if you changed this in the `.env` file). Select the `PostgreSQL` database type, set the server to `db` and enter the credentials found in the `.env` file to login. More info on how to use Adminer can be found on their website.
 
 ## World ports (Advanced)
 
