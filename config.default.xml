@@ -2,10 +2,10 @@
 <Uchu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Database>
     <Provider>postgres</Provider>
-    <Database>uchu</Database>
+    <Database>$POSTGRES_DB</Database>
     <Host>db</Host>
-    <Username>uchu</Username>
-    <Password>uchu</Password>
+    <Username>$POSTGRES_USER</Username>
+    <Password>$POSTGRES_PASSWORD</Password>
   </Database>
   <ConsoleLogging>
     <Level>Debug</Level>
