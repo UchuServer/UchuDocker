@@ -26,15 +26,7 @@ Copy the `.env.sample` file to `.env`:
 cp .env.sample .env
 ```
 
-Set the `GAME_FOLDER` variable in the `.env` file to path to the `/res` folder in your unpacked `LU` game folder.
-
-Next, create the `data` folder that's used to store the Postgres and Redis database files to ensure no loss of data:
-
-```bash
-mkdir data
-```
-
-Deleting this folder will result in your Postgres database being wiped, including all the progress you've made in-game, be cautious when handling this folder!
+Set the `GAME_FOLDER` variable in the `.env` file to the absolute path to the `/res` folder in your unpacked `LU` game folder.
 
 ## Running
 
@@ -59,3 +51,7 @@ docker-compose down
 ## Adminer
 
 Uchu Docker also automatically runs [Adminer](https://www.adminer.org), which allows you to easily modify the Uchu database in a user friendly way. After running Uchu Docker you can access Adminer through your browser at [this link](0.0.0.0:8080). Select the `PostgreSQL` database type, set the server to `db` and enter the credentials found in the `.env` file to login. More info on how to use Adminer can be found on their website.
+
+## World ports (Advanced)
+
+If you wish to change the world ports, you can change the exposed ports in the `.env` file easily. The internal ports are locked by default to `2002` for the charater port and `10000-10100` for the api and world ports. If you wish to change these internal ports update the internal port values in the `.env` file. Ensure that `INTERNAL_API_PORT_RANGE` is updated to match your updated `INTERNAL_API_PORT` and `INTERNAL_MAX_WORLDS`.

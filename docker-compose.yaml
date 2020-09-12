@@ -37,7 +37,7 @@ services:
     volumes:
       - ${GAME_FOLDER}:/res
     ports:
-      - "2002:${CHARACTER_PORT}"
-      - "10000-10100:${API_PORT}-${MAX_API_PORT}"
+      - "${CHARACTER_PORT}:${INTERNAL_CHARACTER_PORT}"
+      - "${API_PORT_RANGE}:${INTERNAL_API_PORT_RANGE}"
     tty: true
     stdin_open: true

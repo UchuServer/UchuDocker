@@ -28,10 +28,10 @@
   <Networking>
     <Certificate />
     <Hostname />
-    <CharacterPort>$CHARACTER_PORT</CharacterPort>
+    <CharacterPort>$INTERNAL_CHARACTER_PORT</CharacterPort>
     <HostAuthentication>true</HostAuthentication>
     <HostCharacter>true</HostCharacter>
-    <MaxWorldServers>$MAX_WORLD_SERVERS</MaxWorldServers>
+    <MaxWorldServers>$INTERNAL_MAX_WORLDS</MaxWorldServers>
   </Networking>
   <GamePlay>
     <PathFinding>false</PathFinding>
@@ -40,7 +40,7 @@
   <Api>
     <Protocol>http</Protocol>
     <Domain>localhost</Domain>
-    <Port>$API_PORT</Port>
+    <Port>$INTERNAL_API_PORT</Port>
   </Api>
   <Sso>
     <Domain />
