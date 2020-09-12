@@ -1,0 +1,3 @@
+[submodule "Uchu"]
+	path = Uchu
+	url = git@github.com:yuwui/Uchu.git
