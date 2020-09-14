@@ -42,6 +42,10 @@
     <Domain>localhost</Domain>
     <Port>$INTERNAL_API_PORT</Port>
   </Api>
+  <Cache>
+    <Host>redis</Host>
+    <Port>6379</Port>
+  </Cache>
   <Sso>
     <Domain />
   </Sso>
