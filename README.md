@@ -10,6 +10,8 @@ Docker setup for running the Uchu Lego Universe server
 
 ## Setup
 
+#### Downloading the source
+
 Clone the repository recursively, so that the Uchu source is also pulled:
 
 ```bash
@@ -19,6 +21,8 @@ git clone https://github.com/MickVermeulen/UchuDocker.git --recursive -b master
 # If you prefer to use SSH
 git clone git@github.com:MickVermeulen/UchuDocker.git --recursive -b master
 ```
+
+#### Setting up your environment
 
 Copy the `.env.sample` file to `.env`:
 
@@ -31,6 +35,16 @@ copy .env.sample .env
 ```
 
 Set the `GAME_FOLDER` variable in the `.env` file to the absolute path to the `/res` folder in your unpacked `LU` game folder using a text editor of your choice.
+
+#### Setting up data storage
+
+Create a data folder which will store your database files to ensure no loss of data:
+
+```bash
+mkdir data
+```
+
+This can also be done by creating a new folder named `data` manually, without the terminal.
 
 ## Running
 
