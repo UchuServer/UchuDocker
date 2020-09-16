@@ -18,20 +18,20 @@
   </FileLogging>
   <DllSource>
     <DotNetPath>dotnet</DotNetPath>
-    <Instance>./Uchu.Instance/bin/Debug/netcoreapp3.1/Uchu.Instance.dll</Instance>
-    <ScriptDllSource>./Uchu.StandardScripts/bin/Debug/netcoreapp3.1/Uchu.StandardScripts.dll</ScriptDllSource>
+    <Instance>Uchu.Instance/bin/Debug/netcoreapp3.1/Uchu.Instance.dll</Instance>
+    <ScriptDllSource>Uchu.StandardScripts</ScriptDllSource>
   </DllSource>
   <ManagedScriptSources />
   <ResourcesConfiguration>
     <GameResourceFolder>/res</GameResourceFolder>
   </ResourcesConfiguration>
   <Networking>
-    <Certificate />
-    <Hostname />
-    <CharacterPort>$INTERNAL_CHARACTER_PORT</CharacterPort>
+    <Certificate>$CERTIFICATE</Certificate>
+    <Hostname>localhost</Hostname>
+    <CharacterPort>2002</CharacterPort>
     <HostAuthentication>true</HostAuthentication>
     <HostCharacter>true</HostCharacter>
-    <MaxWorldServers>$INTERNAL_MAX_WORLDS</MaxWorldServers>
+    <MaxWorldServers>100</MaxWorldServers>
   </Networking>
   <GamePlay>
     <PathFinding>false</PathFinding>
@@ -40,7 +40,7 @@
   <Api>
     <Protocol>http</Protocol>
     <Domain>localhost</Domain>
-    <Port>$INTERNAL_API_PORT</Port>
+    <Port>10000</Port>
   </Api>
   <Cache>
     <Host>redis</Host>

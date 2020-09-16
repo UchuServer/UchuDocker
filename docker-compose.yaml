@@ -6,7 +6,7 @@ services:
       - .env
     restart: always
     ports:
-      - "${DATABASE_PORT}:5432"
+      - ${DATABASE_PORT}:5432
     volumes:
       - ${DATA_FOLDER}:/var/lib/postgresql/data
   adminer:
@@ -15,14 +15,14 @@ services:
       depends_on:
           - db
       ports:
-        - "${ADMINER_PORT}:8080"
+        - ${ADMINER_PORT}:8080
   redis:
     image: redis:6.0.8-alpine
     env_file:
       - .env
     restart: always
     ports:
-      - "${REDIS_PORT}:6379"
+      - ${REDIS_PORT}:6379
     volumes:
       - ${DATA_FOLDER}:/data
   uchu:
@@ -37,7 +37,12 @@ services:
     volumes:
       - ${GAME_FOLDER}:/res
     ports:
-      - "${CHARACTER_PORT}:${INTERNAL_CHARACTER_PORT}"
-      - "${API_PORT_RANGE}:${INTERNAL_API_PORT_RANGE}"
+      - ${UCHU_HANDSHAKE_PORT}:1001
+      - ${UCHU_CHARACTER_PORT}:2002
+      - ${UCHU_CHAT_PORT}:2004
+      - ${UCHU_API_PORT_RANGE}:10000-10100
+      - ${UCHU_WORLD_PORT_RANGE}:20000-20100
+      - ${UCHU_SERVER_PORT}:21836
+      - ${UCHU_AUTH_PORT}:40000
     tty: true
     stdin_open: true
