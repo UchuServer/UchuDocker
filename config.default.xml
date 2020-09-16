@@ -18,8 +18,8 @@
   </FileLogging>
   <DllSource>
     <DotNetPath>dotnet</DotNetPath>
-    <Instance>Uchu.Instance/bin/Debug/netcoreapp3.1/Uchu.Instance.dll</Instance>
-    <ScriptDllSource>Uchu.StandardScripts</ScriptDllSource>
+    <Instance>../../../../Uchu.Instance/bin/Debug/netcoreapp3.1/Uchu.Instance.dll</Instance>
+    <ScriptDllSource>../../../../Uchu.StandardScripts/bin/Debug/netcoreapp3.1/Uchu.StandardScripts.dll</ScriptDllSource>
   </DllSource>
   <ManagedScriptSources />
   <ResourcesConfiguration>

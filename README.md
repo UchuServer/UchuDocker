@@ -5,7 +5,7 @@ Docker setup for running the Uchu Lego Universe server
 ## Requirements
 
 - Docker
-- Docker Compose
+- Docker Compose (a version that supports at least docker-compose v3.3 files)
 - [LU unpacked client](https://docs.google.com/document/d/1XmHXWuUQqzUIOcv6SVVjaNBm4bFg9lnW4Pk1pllimEg/edit) with [LCDRs TcpUdp mod](https://github.com/lcdr/raknet_shim_dll/releases/tag/2020-09-03)
 
 ## Setup
@@ -14,19 +14,23 @@ Clone the repository recursively, so that the Uchu source is also pulled:
 
 ```bash
 # If you prefer to use HTTPS (default)
-git clone https://github.com/yuwui/Uchu --recursive -b master
+git clone https://github.com/MickVermeulen/UchuDocker.git --recursive -b master
 
 # If you prefer to use SSH
-git clone git@github.com:yuwui/Uchu.git --recursive -b master
+git clone git@github.com:MickVermeulen/UchuDocker.git --recursive -b master
 ```
 
 Copy the `.env.sample` file to `.env`:
 
 ```bash
+# On Linux, MacOS and Powershell
 cp .env.sample .env
+
+# On Windows CMD
+copy .env.sample .env
 ```
 
-Set the `GAME_FOLDER` variable in the `.env` file to the absolute path to the `/res` folder in your unpacked `LU` game folder.
+Set the `GAME_FOLDER` variable in the `.env` file to the absolute path to the `/res` folder in your unpacked `LU` game folder using a text editor of your choice.
 
 ## Running
 
