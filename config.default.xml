@@ -26,8 +26,8 @@
     <GameResourceFolder>/res</GameResourceFolder>
   </ResourcesConfiguration>
   <Networking>
-    <Certificate>$CERTIFICATE</Certificate>
-    <Hostname>localhost</Hostname>
+    <Certificate>cert.pfx</Certificate>
+    <Hostname>$HOSTNAME</Hostname>
     <CharacterPort>2002</CharacterPort>
     <HostAuthentication>true</HostAuthentication>
     <HostCharacter>true</HostCharacter>

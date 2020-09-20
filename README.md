@@ -52,13 +52,13 @@ This can also be done by creating a new folder named `data` manually, without th
 docker-compose up -d
 ```
 
-This runs Uchu in the background along with Postgres, Redis and Adminer. You can attach to the `Uchu.Master` shell using:
+This runs Uchu in the background along with Postgres and Redis. You can attach to the `Uchu.Master` shell using:
 
 ```bash
 docker attach uchudocker_uchu_1
 ```
 
-This allows you to input shell commands like `/adduser <username>`. You can exit the shell using `Ctrl+C`.
+This allows you to input shell commands like `/adduser <username>`. You can exit the shell using `Ctrl+P + Ctrl+Q` (`Ctrl+C` closes the container, not just your attach session).
 
 ## Closing
 
@@ -72,10 +72,8 @@ When applying any changes to the `.env` file after your initial `docker-compose 
 
 ## Adminer
 
-Uchu Docker also automatically runs [Adminer](https://www.adminer.org), which allows you to easily modify the Uchu database in a user friendly way. After running Uchu Docker you can access Adminer through your browser at 0.0.0.0:8080. Select the `PostgreSQL` database type, set the server to `db` and enter the credentials found in the `.env` file to login. More info on how to use Adminer can be found on their website.
+Uchu Docker can also run [Adminer](https://www.adminer.org), which allows you to easily modify the Uchu database in a user friendly way. You can activate this by uncommenting the lines after `# Uncomment this if you wish to use adminer` in `docker-compose.yaml`, note that you probably don't need this by default but can assist with more user friendly database management. Select the `PostgreSQL` database type, set the server to `db` and enter the credentials found in the `.env` file to login. More info on how to use Adminer can be found on their website.
 
 ## Hosting (Advanced)
 
-This Docker setup can be used to host Uchu as long as all ports are exposed (see the .env.sample file for all ports that need to be exposed). Do note that hosting Uchu on anything other than `localhost` requires a valid PFX certificate from a trusted CA like Let's Encrypt and therefore also a valid domain name. You *cannot* use a self signed certificate even if you first generate your own root certificate, as the TcpUdp mod does not look at the OS certificate store for valid root certificates. You can specify the path to your PFX certificate using the `$CERTIFICATE` environment variable.
-
-When hosting Uchu on a private network, for example in a LAN scenario, it might be a bit cumbersome to get a valid certficate and a domain. An alternative solution would be to run Uchu on a host device, find it's private network IP using `ipconfig` or `ifconfig` and port-forwarding all Uchu ports on `localhost` on client machines to the private network IP and the respective ports. This way clients on the private network can connect with Uchu through `localhost` and therefore no certificate is required. To ensure this works port-forward all the ports from the `.env` file on all client machines to the host machine.
+This Docker setup can be used to host Uchu as long as all ports are exposed (see the .env.sample file for all ports that need to be exposed). Do note that hosting Uchu on anything other than `localhost` requires a valid PFX certificate from a trusted CA like Let's Encrypt and therefore also a valid domain name. You *cannot* use a self signed certificate even if you first generate your own root certificate, as the TcpUdp mod does not look at the OS certificate store for valid root certificates. You can add a certificate to the container by adding it to this directory under the name `cert.pfx`. Finally set the `HOSTNAME` variable in the `.env` file to the hostname for the certificate.
