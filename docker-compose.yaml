@@ -7,6 +7,8 @@ services:
     restart: always
     volumes:
       - ${DATA_FOLDER}:/var/lib/postgresql/data
+    expose:
+      - 5432
   # Uncomment this if you wish to use adminer
   # adminer:
   #     image: adminer
@@ -16,12 +18,19 @@ services:
   #     ports:
   #       - ${ADMINER_PORT}:8080
   redis:
-    image: redis:6.0.8-alpine
-    env_file:
+      build:
+        context: .
+        dockerfile: Redis.Dockerfile 
+      env_file:
       - .env
-    restart: always
-    volumes:
-      - ${DATA_FOLDER}:/data
+      image: myredis
+      privileged: true
+      command: sh -c "./redis.sh"
+      volumes:
+        - ${DATA_FOLDER}:/data:rw
+      expose:
+        - 6379
+      restart: always
   uchu:
     build:
       context: .
