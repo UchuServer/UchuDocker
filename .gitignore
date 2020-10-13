@@ -1,4 +1,5 @@
-data/*
+pg-data/*
+redis-data/*
 .env
 .DS_Store
 cert.pfx
