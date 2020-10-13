@@ -8,7 +8,7 @@
     <Password>$POSTGRES_PASSWORD</Password>
   </Database>
   <ConsoleLogging>
-    <Level>Debug</Level>
+    <Level>$LOG_LEVEL</Level>
     <Timestamp>false</Timestamp>
   </ConsoleLogging>
   <FileLogging>

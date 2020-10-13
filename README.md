@@ -7,6 +7,7 @@ Docker setup for running the Uchu Lego Universe server
 - Docker
 - Docker Compose (a version that supports at least docker-compose v3.3 files)
 - [LU unpacked client](https://docs.google.com/document/d/1XmHXWuUQqzUIOcv6SVVjaNBm4bFg9lnW4Pk1pllimEg/edit) with [LCDRs TcpUdp mod](https://github.com/lcdr/raknet_shim_dll/releases/tag/2020-09-03)
+- Bash or PowerShell
 
 ## Setup
 
@@ -15,10 +16,6 @@ Docker setup for running the Uchu Lego Universe server
 Clone the repository recursively, so that the Uchu source is also pulled:
 
 ```bash
-# If you prefer to use HTTPS (default)
-git clone https://github.com/MickVermeulen/UchuDocker.git --recursive -b master
-
-# If you prefer to use SSH
 git clone git@github.com:MickVermeulen/UchuDocker.git --recursive -b master
 ```
 
@@ -27,11 +24,8 @@ git clone git@github.com:MickVermeulen/UchuDocker.git --recursive -b master
 Copy the `.env.sample` file to `.env`:
 
 ```bash
-# On Linux, MacOS and Powershell
+# Use Bash or Powershell
 cp .env.sample .env
-
-# On Windows CMD
-copy .env.sample .env
 ```
 
 Set the `GAME_FOLDER` variable in the `.env` file to the absolute path to the `/res` folder in your unpacked `LU` game folder using a text editor of your choice.
@@ -41,14 +35,14 @@ Set the `GAME_FOLDER` variable in the `.env` file to the absolute path to the `/
 Create a data folder which will store your database files to ensure no loss of data:
 
 ```bash
-mkdir data
+mkdir pg-data
+mkdir redis-data
 ```
-
-This can also be done by creating a new folder named `data` manually, without the terminal.
 
 ## Running
 
 ```bash
+docker-compose build
 docker-compose up -d
 ```
 
@@ -58,7 +52,7 @@ This runs Uchu in the background along with Postgres and Redis. You can attach t
 docker attach uchudocker_uchu_1
 ```
 
-This allows you to input shell commands like `/adduser <username>`. You can exit the shell using `Ctrl+P + Ctrl+Q` (`Ctrl+C` closes the container, not just your attach session).
+This allows you to input shell commands like `/adduser <username>`. You can exit the shell using `Ctrl+P + Ctrl+Q` (`Ctrl+C` closes the container, not just your session).
 
 ## Closing
 
@@ -68,7 +62,7 @@ docker-compose down
 
 ## Applying changes to .env
 
-When applying any changes to the `.env` file after your initial `docker-compose up -d`, the changes aren't built into the container. First run `docker-compose build --no-cache` to apply your `.env` file changes after which `docker-compose up -d` can be used again to start up Uchu. Note that this is not required if you only changed the LU resource location before running your first `docker-compose up -d`, but is required for any subsequent changes.
+When applying any changes to the `.env` file after your initial `docker-compose up -d`, the changes aren't built into the container. Run `docker-compose build --no-cache` to apply your `.env` file changes after which `docker-compose up -d` can be to start up Uchu.
 
 ## Adminer
 
@@ -76,4 +70,6 @@ Uchu Docker can also run [Adminer](https://www.adminer.org), which allows you to
 
 ## Hosting (Advanced)
 
-This Docker setup can be used to host Uchu as long as all ports are exposed (see the .env.sample file for all ports that need to be exposed). Do note that hosting Uchu on anything other than `localhost` requires a valid PFX certificate from a trusted CA like Let's Encrypt and therefore also a valid domain name. You *cannot* use a self signed certificate even if you first generate your own root certificate, as the TcpUdp mod does not look at the OS certificate store for valid root certificates. You can add a certificate to the container by adding it to this directory under the name `cert.pfx`. Finally set the `HOSTNAME` variable in the `.env` file to the hostname for the certificate.
+This Docker setup can be used to host Uchu as long as all ports are exposed (see the .env.sample file for all ports that need to be exposed). Use your firewall to port forward these ports and incoming connections should be forwarded to Uchu. Do note that hosting Uchu on anything other than `localhost` requires a valid PFX certificate from a trusted CA like Let's Encrypt and therefore also a valid domain name.
+
+You *cannot* use a self signed certificate even if you first generate your own root certificate: the TcpUdp mod does not look at the OS certificate store for valid root certificates. You can add a certificate to the container by adding it to this directory under the name `cert.pfx`. Finally set the `HOSTNAME` variable in the `.env` file to the domain name for your certificate.

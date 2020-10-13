@@ -6,7 +6,7 @@ services:
       - .env
     restart: always
     volumes:
-      - ${DATA_FOLDER}:/var/lib/postgresql/data
+      - ${POSTGRES_DATA_FOLDER}:/var/lib/postgresql/data
     expose:
       - 5432
   # Uncomment this if you wish to use adminer
@@ -27,7 +27,7 @@ services:
       privileged: true
       command: sh -c "./redis.sh"
       volumes:
-        - ${DATA_FOLDER}:/data:rw
+        - ${REDIS_DATA_FOLDER}:/data:rw
       expose:
         - 6379
       restart: always
