@@ -7,7 +7,7 @@ Docker setup for running the Uchu Lego Universe server
 - Docker
 - Docker Compose (a version that supports at least docker-compose v3.3 files)
 - [LU unpacked client](https://docs.google.com/document/d/1XmHXWuUQqzUIOcv6SVVjaNBm4bFg9lnW4Pk1pllimEg/edit) with [LCDRs TcpUdp mod](https://github.com/lcdr/raknet_shim_dll/releases/tag/2020-09-03)
-- Bash or PowerShell
+- Bash (macOS / Linux) or PowerShell (Windows)
 
 ## Setup
 
@@ -16,7 +16,7 @@ Docker setup for running the Uchu Lego Universe server
 Clone the repository recursively, so that the Uchu source is also pulled:
 
 ```bash
-git clone git@github.com:MickVermeulen/UchuDocker.git --recursive -b master
+git clone git@github.com:UchuServer/UchuDocker.git --recursive -b master
 ```
 
 #### Setting up your environment
@@ -24,7 +24,6 @@ git clone git@github.com:MickVermeulen/UchuDocker.git --recursive -b master
 Copy the `.env.sample` file to `.env`:
 
 ```bash
-# Use Bash or Powershell
 cp .env.sample .env
 ```
 
@@ -52,7 +51,7 @@ This runs Uchu in the background along with Postgres and Redis. You can attach t
 docker attach uchudocker_uchu_1
 ```
 
-This allows you to input shell commands like `/adduser <username>`. You can exit the shell using `Ctrl+P + Ctrl+Q` (`Ctrl+C` closes the container, not just your session).
+This allows you to input shell commands like `/adduser <username>`. You can exit the shell using `Ctrl+P + Ctrl+Q` (Don't use `Ctrl+C`: it closes the container, not just your session).
 
 ## Closing
 
