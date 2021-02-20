@@ -35,7 +35,6 @@ Create a data folder which will store your database files to ensure no loss of d
 
 ```bash
 mkdir pg-data
-mkdir redis-data
 ```
 
 ## Running
@@ -45,7 +44,7 @@ docker-compose build
 docker-compose up -d
 ```
 
-This runs Uchu in the background along with Postgres and Redis. You can attach to the `Uchu.Master` shell using:
+This runs Uchu in the background along with Postgres. You can attach to the `Uchu.Master` shell using:
 
 ```bash
 docker attach uchudocker_uchu_1

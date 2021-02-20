@@ -17,27 +17,12 @@ services:
   #         - db
   #     ports:
   #       - ${ADMINER_PORT}:8080
-  redis:
-      build:
-        context: .
-        dockerfile: Redis.Dockerfile 
-      env_file:
-      - .env
-      image: myredis
-      privileged: true
-      command: sh -c "./redis.sh"
-      volumes:
-        - ${REDIS_DATA_FOLDER}:/data:rw
-      expose:
-        - 6379
-      restart: always
   uchu:
     build:
       context: .
       dockerfile: Uchu.Dockerfile
     depends_on:
       - db
-      - redis
     env_file:
       - .env
     volumes:

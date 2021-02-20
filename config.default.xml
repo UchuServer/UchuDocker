@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Uchu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SentryDsn>$SENTRY_DSN</SentryDsn>
   <Database>
     <Provider>postgres</Provider>
     <Database>$POSTGRES_DB</Database>
@@ -42,10 +43,6 @@
     <Domain>localhost</Domain>
     <Port>10000</Port>
   </Api>
-  <Cache>
-    <Host>redis</Host>
-    <Port>6379</Port>
-  </Cache>
   <Sso>
     <Domain />
   </Sso>
