@@ -19,8 +19,8 @@
   </FileLogging>
   <DllSource>
     <DotNetPath>dotnet</DotNetPath>
-    <Instance>../../../../Uchu.Instance/bin/Release/netcoreapp3.1/Uchu.Instance.dll</Instance>
-    <ScriptDllSource>../../../../Uchu.StandardScripts/bin/Release/netcoreapp3.1/Uchu.StandardScripts.dll</ScriptDllSource>
+    <Instance>../../../../Uchu.Instance/bin/Release/net5.0/Uchu.Instance.dll</Instance>
+    <ScriptDllSource>../../../../Uchu.StandardScripts/bin/Release/net5.0/Uchu.StandardScripts.dll</ScriptDllSource>
   </DllSource>
   <ManagedScriptSources />
   <ResourcesConfiguration>
@@ -33,6 +33,8 @@
     <HostAuthentication>true</HostAuthentication>
     <HostCharacter>true</HostCharacter>
     <MaxWorldServers>100</MaxWorldServers>
+    <WorldServerHeartBeatIntervalInMinutes>$HEART_BEAT_INTERVAL</WorldServerHeartBeatIntervalInMinutes>
+    <WorldServerHeartBeatsPerInterval>$REQUIRED_HEART_BEATS</WorldServerHeartBeatsPerInterval>
   </Networking>
   <GamePlay>
     <PathFinding>false</PathFinding>

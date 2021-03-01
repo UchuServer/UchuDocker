@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine
 
 RUN apk update && apk add --no-cache gettext curl python3 py3-pip
 
@@ -14,4 +14,4 @@ RUN dotnet build --configuration Release
 COPY config.default.xml .env cert.pfx* ./
 RUN set -o allexport && source .env && set +o allexport && envsubst < config.default.xml > config.xml
 
-ENTRYPOINT ["dotnet", "Uchu.Master/bin/Release/netcoreapp3.1/Uchu.Master.dll"]
+ENTRYPOINT ["dotnet", "Uchu.Master/bin/Release/net5.0/Uchu.Master.dll"]
