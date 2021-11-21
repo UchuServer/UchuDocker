@@ -19,8 +19,8 @@
   </FileLogging>
   <DllSource>
     <DotNetPath>dotnet</DotNetPath>
-    <Instance>../../../../Uchu.Instance/bin/Release/net5.0/Uchu.Instance.dll</Instance>
-    <ScriptDllSource>../../../../Uchu.StandardScripts/bin/Release/net5.0/Uchu.StandardScripts.dll</ScriptDllSource>
+    <Instance>../../../../Uchu.Instance/bin/Release/net6.0/Uchu.Instance.dll</Instance>
+    <ScriptDllSource>../../../../Uchu.StandardScripts/bin/Release/net6.0/Uchu.StandardScripts.dll</ScriptDllSource>
   </DllSource>
   <ManagedScriptSources />
   <ResourcesConfiguration>
